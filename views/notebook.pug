@@ -1,0 +1,16 @@
+html
+    head
+        title node-jupyter | Welcome
+    body
+        p Welcome #{user}!
+        div.controller
+            if running
+                p
+                    |Your notebook is already running
+                    a(target="_blank" href= baseUrl)  here
+            else
+                p
+                    |Launching your
+                    a(target="_blank" href= baseUrl)  notebook
+
+            a(href="/exit?user="+ user) Exit my notebook
