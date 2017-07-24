@@ -72,7 +72,7 @@ app.post('/launch', function(req, res) {
                 // Launch jupyter notebook
                 notebooks[userID].process = spawn('jupyter', config);
 
-                // Uncomment this for logs from jupyter
+                // jupyter notebook logs
                 notebooks[userID].process.stdout.on('data', function(data) {
                     console.log('' + data);
                 });
@@ -94,9 +94,9 @@ app.post('/launch', function(req, res) {
 app.get('/exit', function(req, res) {
     let userID = req.query.user;
     if (notebooks.hasOwnProperty(userID)) {
+        notebooks[userID].process.kill('SIGKILL');
         portlist[notebooks[userID].port] = false;
-        notebooks[userID].process.stdin.pause();
-        notebooks[userID].process.kill();
+        notebooks[userID].process = null;
         delete notebooks[userID];
     }
     res.redirect('/');
