@@ -20,7 +20,7 @@ else
 fi
 
 if [[ -z $3 ]]; then
-    default_notebook="Getting-Started.ipynb"
+    default_notebook="/home/kishlaya/projects/node-jupyter/Getting-Started.ipynb"
 else
     default_notebook=$3
 fi
