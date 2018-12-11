@@ -1,5 +1,7 @@
 # node-jupyter
 
+**Warning:** This project is an experiement.   
+
 node-jupyter helps you in running jupyter notebook app for multi-users simultaneously.
 
 Note: Jailing users in only available for Linux systems at the moment.
